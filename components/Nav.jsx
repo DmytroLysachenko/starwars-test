@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const Nav = () => {
   return (
-    <nav className="flex-between w-full h-20 flex gap-5 justify-evenly">
+    <nav className="flex-between w-full h-14 md:h-20 flex gap-5 justify-evenly">
       <Link href={'/'}>
         <Image
           src={'/assets/images/starship2.png'}
@@ -17,7 +17,7 @@ const Nav = () => {
         Home
       </Link>
 
-      <Link href={'/heros'}>
+      <Link href={'/heroes'}>
         <Image
           src={'/assets/images/jediLogo.png'}
           alt="Navigation starship"

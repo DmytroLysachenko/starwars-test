@@ -5,7 +5,12 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        mobPageHeight: 'calc(100vh - 56px)',
+        tabPageHeight: 'calc(100vh - 80px)',
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
 };

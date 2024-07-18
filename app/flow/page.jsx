@@ -39,20 +39,14 @@ const hide = (hidden) => (nodeOrEdge) => {
 const Page = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [hidden, setHidden] = useState(false);
 
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
     []
   );
 
-  useEffect(() => {
-    setNodes((nds) => nds.map(hide(hidden)));
-    setEdges((eds) => eds.map(hide(hidden)));
-  }, [hidden]);
-
   return (
-    <div className="w-screen h-screen">
+    <div className="h-mobPageHeight md:h-tabPageHeight overflow-y-auto">
       <ReactFlow
         nodes={nodes}
         edges={edges}

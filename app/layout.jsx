@@ -1,5 +1,8 @@
 import Nav from '@components/Nav';
-import '@styles/globals.css';
+import '../styles/globals.css';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: 'Star Wars guide',
@@ -12,6 +15,7 @@ const RootLayout = ({ children }) => {
       <body>
         <Nav />
         <main className="app">{children}</main>
+        <ToastContainer />
       </body>
     </html>
   );
