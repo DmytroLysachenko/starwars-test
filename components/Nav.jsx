@@ -8,29 +8,31 @@ const Nav = () => {
     <nav className="flex-between w-full h-14 md:h-20 flex gap-5 justify-evenly shadow-md">
       <Link
         href={'/'}
-        className="flex flex-col items-center justify-center "
+        className="flex flex-col items-center justify-center"
       >
-        <Image
-          src={'/assets/images/starship2.png'}
-          alt="Navigation starship"
-          width={30}
-          height={30}
-          className="object-contain"
-        />
+        <div className="relative size-8 md:size-12">
+          <Image
+            src={'/assets/images/starship2.png'}
+            alt="Navigation starship"
+            fill
+            className="object-contain"
+          />
+        </div>
         Home
       </Link>
 
       <Link
         href={'/heroes'}
-        className="flex flex-col items-center justify-center "
+        className="flex flex-col items-center justify-center"
       >
-        <Image
-          src={'/assets/images/jediLogo.png'}
-          alt="Navigation starship"
-          width={30}
-          height={30}
-          className="object-contain"
-        />
+        <div className="relative size-8 md:size-12">
+          <Image
+            src={'/assets/images/jediLogo.png'}
+            alt="Navigation starship"
+            fill
+            className="object-contain"
+          />
+        </div>
         Heroes
       </Link>
     </nav>

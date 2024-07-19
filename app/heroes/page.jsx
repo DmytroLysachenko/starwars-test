@@ -1,19 +1,27 @@
+import HeroesList from '@components/HeroesList';
 import Page from '@components/Page';
-import Link from 'next/link';
+import Pagination from '@components/Pagination';
+import SearchBar from '@components/SearchBar';
+import { fetchHeroes } from '@utils/starWarsAPI';
 
-const HeroStartPage = () => {
+const HeroesListPage = async ({ searchParams }) => {
+  const { page, name } = searchParams;
+  const data = await fetchHeroes(page, name);
+
   return (
     <Page>
-      <div className="flex justify-center items-center h-full">
-        <Link
-          href={'/heroes/1'}
-          className="block w-40 text-center text-white p-5 bg-gray-600 m-auto rounded-xl"
-        >
-          Lets start!
-        </Link>
-      </div>
+      <SearchBar />
+      {data.results && data.results.length && (
+        <section className="flex flex-col gap-10 justify-between items-center h-full">
+          <HeroesList
+            heroes={data.results}
+            page={page}
+          />
+          <Pagination total={data.count} />
+        </section>
+      )}
     </Page>
   );
 };
 
-export default HeroStartPage;
+export default HeroesListPage;

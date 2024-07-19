@@ -1,5 +1,3 @@
-import { getLastValueFromHeader } from '@utils/getLastValueFromHeader';
-import { headers } from 'next/headers';
 import Link from 'next/link';
 
 const HeroCard = ({ hero, page }) => {
@@ -42,7 +40,7 @@ const HeroCard = ({ hero, page }) => {
 
           <div className="self-center">
             <Link
-              href={`/heroes/${page}/${hero.id}`}
+              href={`/heroes/${hero.id}`}
               className="block w-40 rounded bg-sky-600 py-2 px-4 text-center text-sm text-white data-[hover]:bg-sky-500 data-[active]:bg-sky-700"
             >
               Check out details

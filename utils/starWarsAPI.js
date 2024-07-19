@@ -4,9 +4,11 @@ const { default: axios } = require('axios');
 
 const starWarsAPI = axios.create({ baseURL: 'https://sw-api.starnavi.io' });
 
-export const fetchHeroes = async (page) => {
+export const fetchHeroes = async (page = 1, name) => {
   try {
-    const { data } = await starWarsAPI.get('/people', { params: { page } });
+    const { data } = await starWarsAPI.get('/people', {
+      params: { page, name },
+    });
     return data;
   } catch (error) {
     console.log(error);

@@ -4,10 +4,8 @@ import { getLastValueFromHeader } from '@utils/getLastValueFromHeader';
 import { fetchHeroById, fetchHeroKeyList } from '@utils/starWarsAPI';
 import { headers } from 'next/headers';
 
-const SingleHeroPage = async () => {
-  const headersList = headers();
-  const id = getLastValueFromHeader(headersList);
-
+const SingleHeroPage = async ({ params }) => {
+  const id = params.id;
   const hero = await fetchHeroById(id);
   if (hero.starships && hero.starships.length > 0) {
     const starships = await fetchHeroKeyList('starships', hero.starships);

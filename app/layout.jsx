@@ -1,9 +1,10 @@
 import Nav from '@components/Nav';
-import '../styles/globals.css';
-import { Roboto } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
+import '../styles/index.css';
+import { Inter } from 'next/font/google';
+const inter = Inter({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+});
 export const metadata = {
   title: 'Star Wars guide',
   description: 'Find all the connections from your favorite movies series.',
@@ -12,10 +13,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body>
+      <body className={`${inter.className} antialiased`}>
         <Nav />
-        <main className={roboto.className}>{children}</main>
-        <ToastContainer />
+        <main>{children}</main>
       </body>
     </html>
   );
