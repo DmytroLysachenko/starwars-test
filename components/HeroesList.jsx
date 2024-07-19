@@ -1,14 +1,14 @@
 import HeroCard from './HeroCard';
 
-const HeroesList = ({ heroes }) => {
-  const checkDetails = (id) => {};
-
+const HeroesList = ({ heroes, page }) => {
+  console.log(heroes);
   return (
-    <ul className="flex flex-wrap gap-4 justify-center">
+    <ul className="grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3">
       {heroes.map((hero) => (
         <HeroCard
           key={hero.id}
           hero={hero}
+          page={page}
         />
       ))}
     </ul>

@@ -1,18 +1,19 @@
-import HeroesList from '@components/HeroesList';
-import Pagination from '@components/NextPageBtn';
-import NextPageBtn from '@components/NextPageBtn';
-import starWarsAPI, { fetchHeroes } from '@utils/starWarsAPI';
+import Page from '@components/Page';
+import Link from 'next/link';
 
-const Heroes = async () => {
-  const data = await fetchHeroes();
-  const { count: total, next: nextPage, previous: previousPage } = data;
-
+const HeroStartPage = () => {
   return (
-    <div className="h-mobPageHeight md:h-tabPageHeight overflow-y-auto">
-      <HeroesList heroes={heroes} />
-      <Pagination nextPage={nextPage} />
-    </div>
+    <Page>
+      <div className="flex justify-center items-center h-full">
+        <Link
+          href={'/heroes/1'}
+          className="block w-40 text-center text-white p-5 bg-gray-600 m-auto rounded-xl"
+        >
+          Lets start!
+        </Link>
+      </div>
+    </Page>
   );
 };
 
-export default Heroes;
+export default HeroStartPage;
