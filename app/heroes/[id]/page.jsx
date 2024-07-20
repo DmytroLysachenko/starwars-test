@@ -1,25 +1,36 @@
 import HeroFlow from '@components/HeroFlow';
 import Page from '@components/Page';
-import { getLastValueFromHeader } from '@utils/getLastValueFromHeader';
-import { fetchHeroById, fetchHeroKeyList } from '@utils/starWarsAPI';
-import { headers } from 'next/headers';
+import ShipsDescription from '@components/ShipsDescription';
+
+import { fetchDataById, fetchDataByIdArray } from '@utils/starWarsAPI';
 
 const SingleHeroPage = async ({ params }) => {
   const id = params.id;
-  const hero = await fetchHeroById(id);
-  if (hero.starships && hero.starships.length > 0) {
-    const starships = await fetchHeroKeyList('starships', hero.starships);
-    hero.starships = [...starships];
+  const hero = await fetchDataById('people', id);
+  const films = await fetchDataByIdArray('films', hero.films);
+
+  let starships = [];
+  const starshipsIdArray = [];
+  for (const film of films) {
+    starshipsIdArray.push(...film.starships);
   }
-  if (hero.films && hero.films.length > 0) {
-    const films = await fetchHeroKeyList('films', hero.films);
-    hero.films = [...films];
+  if (starshipsIdArray && starshipsIdArray.length > 0) {
+    const uniqueStarshipsIds = starshipsIdArray.filter(
+      (id) => starshipsIdArray.indexOf(id) === starshipsIdArray.lastIndexOf(id)
+    );
+
+    starships = await fetchDataByIdArray('starships', uniqueStarshipsIds);
   }
 
   return (
     <Page>
-      <div className="flex w-full h-full p-1">
-        <HeroFlow hero={hero} />
+      <div className="flex flex-col gap-8 items-center w-full h-full">
+        <ShipsDescription starships={starships} />
+        <HeroFlow
+          hero={hero}
+          films={films}
+          starships={starships}
+        />
       </div>
     </Page>
   );

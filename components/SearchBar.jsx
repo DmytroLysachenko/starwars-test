@@ -8,33 +8,19 @@ import SearchButton from './SearchButton';
 
 const SearchBar = () => {
   const [name, setName] = useState('');
-  const searchParams = useSearchParams();
+
   const router = useRouter();
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (name.trim() === '') {
-      cleanSearchParams();
-      return;
-    }
     updateSearchParams(name);
-  };
-
-  const cleanSearchParams = () => {
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.delete('name');
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
-
-    router.push(newPathname);
   };
 
   const updateSearchParams = (name) => {
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set('page', '1');
-    if (name) {
+    if (name.trim()) {
       searchParams.set('name', name);
+      searchParams.set('page', '1');
     } else {
       searchParams.delete('name');
     }
@@ -48,7 +34,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className="relative w-1/4 mx-auto"
+      className="relative w-60 md:w-80 mx-auto"
       onSubmit={(event) => handleSearch(event)}
     >
       <SearchInput setName={setName} />

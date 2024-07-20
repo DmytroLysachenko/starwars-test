@@ -1,5 +1,3 @@
-import { toast } from 'react-toastify';
-
 const { default: axios } = require('axios');
 
 const starWarsAPI = axios.create({ baseURL: 'https://sw-api.starnavi.io' });
@@ -16,9 +14,9 @@ export const fetchHeroes = async (page = 1, name) => {
   }
 };
 
-export const fetchHeroById = async (id) => {
+export const fetchDataById = async (key, id) => {
   try {
-    const { data } = await starWarsAPI.get(`/people/${id}`);
+    const { data } = await starWarsAPI.get(`/${key}/${id}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -26,9 +24,7 @@ export const fetchHeroById = async (id) => {
   }
 };
 
-export const nextPageOfHeroes = async () => {};
-
-export const fetchHeroKeyList = async (key, idArray) => {
+export const fetchDataByIdArray = async (key, idArray) => {
   try {
     const result = [];
     if (idArray.length) {

@@ -17,8 +17,8 @@ const SearchInput = ({ setName }) => {
         onChange={(event) => {
           setName(event.target.value);
         }}
-        placeholder="Name"
-        className="w-full px-4 rounded-md border border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+        placeholder="ex. Obi-Wan Kenobi"
+        className="w-full px-4 md:px-6 rounded-lg border bg-transparent border-purple-700 bg-slate-300 py-2.5 md:py-4 pe-10 shadow-sm text-sm md:text-base"
       />
     </>
   );

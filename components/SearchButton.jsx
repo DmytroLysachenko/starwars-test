@@ -8,7 +8,10 @@ const SearchButton = () => {
       >
         <span className="sr-only">Search</span>
 
-        <FaSearch className="w-4 h-4" />
+        <FaSearch
+          className="w-4 h-4"
+          color="white"
+        />
       </button>
     </span>
   );

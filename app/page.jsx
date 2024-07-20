@@ -1,18 +1,16 @@
-import Feed from '@components/Feed';
+import Page from '@components/Page';
 import Link from 'next/link';
 
 const Home = () => {
   return (
-    <div
-      className="hero h-mobPageHeight md:h-tabPageHeight overflow-y-auto bg-cover bg-center flex justify-center items-center"
-      style={{
-        backgroundImage:
-          'url(https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
-      }}
+    <Page
+      className={
+        'bg-hero-pattern overflow-y-auto bg-cover bg-center flex justify-center items-center'
+      }
     >
-      <section className="star-wars">
-        <div className="max-w-md text-center text-yellow-200 crawl">
-          <h1 className="mb-8 text-5xl font-bold title">
+      <section>
+        <div className="w-[300px] md:w-[700px] h-full  text-center text-yellow-200 ">
+          <h1 className="mb-16 text-5xl font-bold">
             Discover Your Star Wars Hero
           </h1>
           <p className="mb-10">
@@ -22,21 +20,23 @@ const Home = () => {
             From legendary Jedi to iconic Sith, brave rebels to fearless bounty
             hunters, find everything you need to know in one place.
           </p>
-          <ul className="flex flex-col gap-4 mb-10">
+          <ul className="flex flex-col gap-4 mb-16">
             <li>
-              <strong>Explore Comprehensive Profiles:</strong>{' '}
+              <span className=" font-semibold">
+                Explore Comprehensive Profiles:
+              </span>{' '}
               <p>
                 Detailed biographies, character backgrounds, and key moments.
               </p>
             </li>
             <li>
-              <strong>Stay Updated:</strong>{' '}
+              <span className=" font-semibold">Stay Updated:</span>{' '}
               <p>
                 Latest news, appearances, and trivia about your beloved heroes.
               </p>
             </li>
             <li>
-              <strong>Connect and Share:</strong>{' '}
+              <span className=" font-semibold">Connect and Share:</span>{' '}
               <p>
                 Join the fan community, share your insights, and celebrate your
                 favorite characters together.
@@ -45,13 +45,13 @@ const Home = () => {
           </ul>
           <Link
             href={'/heroes'}
-            className="p-3 rounded-md bg-slate-600 text-white"
+            className="block w-[200px] md:w-[300px] mx-auto p-3 md:p-5 md:text-xl rounded-md bg-slate-600 "
           >
             Get Started
           </Link>
         </div>
       </section>
-    </div>
+    </Page>
   );
 };
 

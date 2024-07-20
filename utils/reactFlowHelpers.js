@@ -1,50 +1,38 @@
 const createStarshipsNodes = (starships) => {
-  const starshipsTitleNode = {
-    id: 'starships',
-    data: { label: 'Starships' },
-    position: { x: -100, y: 100 },
-  };
+  const starshipsNodes = starships.map((starship, index) => {
+    const XAxisPosition = 100 * (index + 1) * (-1) ** index;
+    return {
+      id: `starship-${starship.id}`,
+      data: { label: starship.name },
+      position: { x: XAxisPosition, y: 500 },
+    };
+  });
 
-  const starshipsNodes = starships.map((starship, index) => ({
-    id: `starship-${starship.id}`,
-    data: { label: starship.name },
-    position: { x: -180 * (index + 1), y: 200 },
-  }));
-
-  return { starshipsTitleNode, starshipsNodes };
+  return [...starshipsNodes];
 };
 
 const createFilmsNodes = (films) => {
-  const filmsTitleNode = {
-    id: 'films',
-    data: { label: 'Films' },
-    position: { x: 100, y: 100 },
-  };
+  const filmsNodes = films.map((film, index) => {
+    const XAxisPosition = 200 * (index + 1) * (-1) ** index;
 
-  const filmsNodes = films.map((film, index) => ({
-    id: `film-${film.id}`,
-    data: { label: film.title },
-    position: { x: 180 * (index + 1), y: 200 },
-  }));
+    return {
+      id: `film-${film.id}`,
+      data: { label: film.title },
+      position: { x: XAxisPosition, y: 200 },
+    };
+  });
 
-  return { filmsTitleNode, filmsNodes };
+  return [...filmsNodes];
 };
 
-const createArrayEdges = (name, array) => {
-  console.log(name);
-  const heroArrayTitleEdge = {
-    id: `hero-${name}`,
-    source: 'hero',
-    target: name,
-  };
-
-  const arrayEdges = array.map((arrayNode) => ({
-    id: `${name}-${arrayNode.id}`,
-    source: name,
-    target: arrayNode.id,
+const createFromOneToManyEdges = (fromName, toName, array) => {
+  const arrayEdges = array.map((element) => ({
+    id: `${fromName}-${toName}-${element.id}`,
+    source: fromName,
+    target: `${toName}-${element.id}`,
   }));
 
-  return [heroArrayTitleEdge, ...arrayEdges];
+  return [...arrayEdges];
 };
 
 export const createInitialData = (hero, films, starships) => {
@@ -55,18 +43,29 @@ export const createInitialData = (hero, films, starships) => {
   };
   const initialNodes = [heroNode];
   const initialEdges = [];
-  if (starships.length > 0) {
-    const { starshipsTitleNode, starshipsNodes } =
-      createStarshipsNodes(starships);
-    initialNodes.push(starshipsTitleNode, ...starshipsNodes);
-    const starshipsEdges = createArrayEdges('starships', starshipsNodes);
-    initialEdges.push(...starshipsEdges);
+
+  if (starships && starships.length) {
+    const starshipsNodes = createStarshipsNodes(starships);
+    initialNodes.push(...starshipsNodes);
   }
-  if (films.length > 0) {
-    const { filmsTitleNode, filmsNodes } = createFilmsNodes(films);
-    initialNodes.push(filmsTitleNode, ...filmsNodes);
-    const filmsEdges = createArrayEdges('films', filmsNodes);
+
+  if (films && films.length) {
+    const filmsNodes = createFilmsNodes(films);
+    const filmsEdges = createFromOneToManyEdges('hero', 'film', films);
+    initialNodes.push(...filmsNodes);
     initialEdges.push(...filmsEdges);
+    for (const film of films) {
+      const starshipsForFilm = starships.filter((starship) =>
+        film.starships.includes(starship.id)
+      );
+      const eachFilmEdges = createFromOneToManyEdges(
+        `film-${film.id}`,
+        'starship',
+        starshipsForFilm
+      );
+      initialEdges.push(...eachFilmEdges);
+    }
   }
+
   return { initialNodes, initialEdges };
 };

@@ -7,7 +7,7 @@ const BackButton = () => {
   return (
     <button
       type="button"
-      className="flex justify-center items-center rounded-full p-2 w-10 bg-orange-400 absolute left-5 top-5"
+      className="flex justify-center items-center rounded-full p-2 size-8 bg-orange-400 opacity-70 fixed left-4 top-16 md:top-24"
       onClick={() => {
         router.back();
       }}

@@ -17,43 +17,35 @@ const Pagination = ({ total }) => {
     replace(`${pathname}?${params.toString()}`);
   };
   return (
-    <div className="inline-flex justify-center gap-1 justify-self-end relative">
+    <div className="flex justify-center gap-1 relative bottom-3 ">
       {currentPage > 1 && (
         <button
           onClick={() => {
             createPageURL(currentPage - 1);
           }}
-          className="flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900  absolute -left-10 top-0"
+          className="flex size-8 items-center justify-center rounded-full border  bg-slate-500   absolute -left-12 top-1"
         >
           <MdOutlineKeyboardArrowLeft
-            width={12}
-            height={12}
+            color="white"
+            className="size-5"
           />
         </button>
       )}
 
-      <div>
-        <input
-          type="number"
-          className="h-8 w-12 rounded border border-gray-100 bg-white p-0 text-center text-xs font-medium text-gray-900 [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-          min="1"
-          disabled
-          value={currentPage}
-          id="PaginationPage"
-        />
+      <div className="flex justify-center items-center size-full bg-slate-500 px-4 py-2 md:px-6 md:py-3 rounded-lg">
+        {currentPage}
       </div>
 
       {currentPage < total / 10 && (
         <button
           onClick={() => {
-            console.log(currentPage);
             createPageURL(currentPage + 1);
           }}
-          className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900  absolute -right-10 top-0"
+          className="inline-flex size-8  items-center justify-center rounded-full border  bg-slate-500   absolute -right-12 top-1"
         >
           <MdOutlineKeyboardArrowRight
-            width={12}
-            height={12}
+            color="white"
+            className="size-5"
           />
         </button>
       )}
