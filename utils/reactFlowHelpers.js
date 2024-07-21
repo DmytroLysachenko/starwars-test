@@ -1,4 +1,4 @@
-const createStarshipsNodes = (starships) => {
+export const createStarshipsNodes = (starships) => {
   const starshipsNodes = starships.map((starship, index) => {
     const XAxisPosition = 100 * (index + 1) * (-1) ** index;
     return {
@@ -11,7 +11,7 @@ const createStarshipsNodes = (starships) => {
   return [...starshipsNodes];
 };
 
-const createFilmsNodes = (films) => {
+export const createFilmsNodes = (films) => {
   const filmsNodes = films.map((film, index) => {
     const XAxisPosition = 200 * (index + 1) * (-1) ** index;
 
@@ -25,7 +25,7 @@ const createFilmsNodes = (films) => {
   return [...filmsNodes];
 };
 
-const createFromOneToManyEdges = (fromName, toName, array) => {
+export const createFromOneToManyEdges = (fromName, toName, array) => {
   const arrayEdges = array.map((element) => ({
     id: `${fromName}-${toName}-${element.id}`,
     source: fromName,

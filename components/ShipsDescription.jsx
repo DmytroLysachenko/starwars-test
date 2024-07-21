@@ -48,7 +48,9 @@ const ShipsDescription = ({ starships }) => {
         {starships[currentPage - 1] && isTablet && (
           <StarshipCard starship={starships[currentPage - 1]} />
         )}
-        <StarshipCard starship={starships[currentPage]} />
+        {starships[currentPage] && (
+          <StarshipCard starship={starships[currentPage]} />
+        )}
         {starships[currentPage + 1] && isDesktop && (
           <StarshipCard starship={starships[currentPage + 1]} />
         )}

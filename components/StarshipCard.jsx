@@ -2,6 +2,7 @@ import { capitalizeFirstLetter } from '@utils/capitalizeFirstLetter';
 import { numberFormat } from '@utils/numberFormat';
 
 const StarshipCard = ({ starship }) => {
+  console.log(starship);
   const {
     name,
     model,
@@ -35,9 +36,7 @@ const StarshipCard = ({ starship }) => {
           {length !== 'unknown' && (
             <li className="flex justify-between gap-1 py-2 ">
               <p className="font-semibold text-wrap text-left">Length:</p>
-              <p className="text-wrap text-right">
-                {numberFormat(Number(length)) || '0'} m
-              </p>
+              <p className="text-wrap text-right">{length || '0'} m</p>
             </li>
           )}
           {max_atmosphering_speed !== 'unknown' &&

@@ -8,16 +8,14 @@ const Nav = () => {
   const [isVisibleScrollUp, setIsVisibleScrollUp] = useState(false);
 
   useEffect(() => {
-    console.log(window.scrollY);
     window.addEventListener('scroll', () => {
-      console.log(window);
       if (window.scrollY > 200) {
         setIsVisibleScrollUp(true);
       } else {
         setIsVisibleScrollUp(false);
       }
     });
-  });
+  }, []);
 
   const jumpToTop = () => {
     window.scrollTo({
