@@ -1,5 +1,5 @@
 'use client';
-import { FaArrowLeftLong } from 'react-icons/fa6';
+import { FaArrowLeft } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
 
 const BackButton = () => {
@@ -12,9 +12,9 @@ const BackButton = () => {
         router.back();
       }}
     >
-      <FaArrowLeftLong
+      <FaArrowLeft
+        className="size-4 md:size-6"
         color="white"
-        className="w-5 h-5"
       />
     </button>
   );

@@ -9,7 +9,7 @@ const Home = () => {
       }
     >
       <section>
-        <div className="w-[300px] md:w-[700px] h-full  text-center text-yellow-200 ">
+        <div className="w-[300px] md:w-[700px] h-full  text-center text-[#feda4a] ">
           <h1 className="mb-16 text-5xl font-bold">
             Discover Your Star Wars Hero
           </h1>
@@ -45,7 +45,7 @@ const Home = () => {
           </ul>
           <Link
             href={'/heroes'}
-            className="block w-[200px] md:w-[300px] mx-auto p-3 md:p-5 md:text-xl rounded-md bg-slate-600 "
+            className="block w-[200px] md:w-[200px] mx-auto p-3 md:p-5 md:text-xl rounded-xl bg-blue-800 bg-opacity-70 font-bold "
           >
             Get Started
           </Link>

@@ -1,7 +1,11 @@
+'use client';
 import clsx from 'clsx';
 import BackButton from './BackButton';
+import { usePathname } from 'next/navigation';
 
 const Page = ({ children, className }) => {
+  const path = usePathname();
+
   return (
     <div
       className={clsx(
@@ -9,7 +13,7 @@ const Page = ({ children, className }) => {
         className
       )}
     >
-      <BackButton />
+      {path !== '/' && <BackButton />}
       {children}
     </div>
   );

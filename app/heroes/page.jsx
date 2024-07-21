@@ -4,7 +4,7 @@ import Pagination from '@components/Pagination';
 import SearchBar from '@components/SearchBar';
 import { fetchHeroes } from '@utils/starWarsAPI';
 
-const HeroesListPage = async ({ searchParams }) => {
+const HeroesPage = async ({ searchParams }) => {
   const { page, name } = searchParams;
   const data = await fetchHeroes(page, name);
 
@@ -24,4 +24,4 @@ const HeroesListPage = async ({ searchParams }) => {
   );
 };
 
-export default HeroesListPage;
+export default HeroesPage;

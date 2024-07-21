@@ -54,6 +54,9 @@ export const createInitialData = (hero, films, starships) => {
     const filmsEdges = createFromOneToManyEdges('hero', 'film', films);
     initialNodes.push(...filmsNodes);
     initialEdges.push(...filmsEdges);
+  }
+
+  if (starships && starships.length && films && films.length) {
     for (const film of films) {
       const starshipsForFilm = starships.filter((starship) =>
         film.starships.includes(starship.id)

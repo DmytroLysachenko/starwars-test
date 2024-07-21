@@ -44,7 +44,7 @@ const HeroFlow = ({ hero, films, starships = [] }) => {
   };
 
   return (
-    <div className=" relative h-[600px] w-[320px] md:w-[700px] xl:w-[1200px] border border-solid border-[#7473736c] rounded-2xl shadow-lg p-2 bg-blue-950 ">
+    <div className=" relative h-[600px] w-[320px] md:w-[700px] xl:w-[1200px] border border-solid border-[#7473736c] rounded-2xl shadow-lg p-2 bg-blue-950 text-black">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -65,25 +65,21 @@ const HeroFlow = ({ hero, films, starships = [] }) => {
               left: 10,
               top: 20 * index,
               zIndex: 4,
+              color: 'white',
             }}
             key={`${film.id} + ${index}`}
           >
-            <div>
-              <label htmlFor={`${film.id}-ishidden`}>
-                {`"${film.title}" - hidden`}
-                <input
-                  id={`${film.id}-ishidden`}
-                  type="checkbox"
-                  onChange={(event) => {
-                    changeNodesAndEdges(
-                      `film-${film.id}`,
-                      event.target.checked
-                    );
-                  }}
-                  className="ml-2"
-                />
-              </label>
-            </div>
+            <label htmlFor={`${film.id}-ishidden`}>
+              {`"${film.title}" - hidden`}
+              <input
+                id={`${film.id}-ishidden`}
+                type="checkbox"
+                onChange={(event) => {
+                  changeNodesAndEdges(`film-${film.id}`, event.target.checked);
+                }}
+                className="ml-2"
+              />
+            </label>
           </div>
         ))}
       </ReactFlow>

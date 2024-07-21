@@ -9,8 +9,8 @@ export const fetchHeroes = async (page = 1, name) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
-    return error;
+    console.error(error.message);
+    throw new Error('Failed to fetch Heroes');
   }
 };
 
@@ -19,8 +19,8 @@ export const fetchDataById = async (key, id) => {
     const { data } = await starWarsAPI.get(`/${key}/${id}`);
     return data;
   } catch (error) {
-    console.log(error);
-    return error;
+    console.error(error.message);
+    throw new Error('Failed to fetch Data');
   }
 };
 
@@ -35,7 +35,7 @@ export const fetchDataByIdArray = async (key, idArray) => {
       return result;
     }
   } catch (error) {
-    console.log(error);
-    return error;
+    console.error(error.message);
+    throw new Error('Failed to fetch Data');
   }
 };

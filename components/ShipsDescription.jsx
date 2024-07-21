@@ -1,20 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StarshipCard from './StarshipCard';
 import { useMedia } from '@hooks/useMedia';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
 const ShipsDescription = ({ starships }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { isTablet, isDesktop } = useMedia();
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
     <div className="flex relative ">
-      {starships[currentPage - 2] && (
+      {starships[currentPage - 2] && isLoaded && (
         <button
           type="button"
-          className="absolute -left-4 top-1/2  hover:scale-125  transition-all"
+          className="absolute -left-7 top-1/2  hover:scale-110  transition-all bg-slate-500 bg-opacity-40 rounded-full p-1"
           onClick={() => {
             setCurrentPage((prevValue) => prevValue - 1);
           }}
@@ -25,10 +29,10 @@ const ShipsDescription = ({ starships }) => {
           />
         </button>
       )}
-      {starships[currentPage - 1] && !isTablet && (
+      {starships[currentPage - 1] && !isTablet && isLoaded && (
         <button
           type="button"
-          className="absolute -left-4 top-1/2  hover:scale-125 transition-all"
+          className="absolute -left-7 top-1/2  hover:scale-125 transition-all bg-slate-500 bg-opacity-40 rounded-full p-1"
           onClick={() => {
             setCurrentPage((prevValue) => prevValue - 1);
           }}
@@ -49,10 +53,10 @@ const ShipsDescription = ({ starships }) => {
           <StarshipCard starship={starships[currentPage + 1]} />
         )}
       </div>
-      {starships[currentPage + 1] && (
+      {starships[currentPage + 1] && isLoaded && (
         <button
           type="button"
-          className="absolute -right-4 top-1/2  hover:scale-125 transition-all "
+          className="absolute -right-7 top-1/2  hover:scale-125 transition-all bg-slate-500 bg-opacity-40 rounded-full p-1 "
           onClick={() => {
             setCurrentPage((prevValue) => prevValue + 1);
           }}

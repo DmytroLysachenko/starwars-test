@@ -23,7 +23,7 @@ const Pagination = ({ total }) => {
           onClick={() => {
             createPageURL(currentPage - 1);
           }}
-          className="flex size-8 items-center justify-center rounded-full border  bg-slate-500   absolute -left-12 top-1"
+          className="flex size-8 items-center justify-center rounded-full border  bg-slate-500 bg-opacity-40   absolute -left-12 top-1"
         >
           <MdOutlineKeyboardArrowLeft
             color="white"
@@ -32,7 +32,7 @@ const Pagination = ({ total }) => {
         </button>
       )}
 
-      <div className="flex justify-center items-center size-full bg-slate-500 px-4 py-2 md:px-6 md:py-3 rounded-lg">
+      <div className="flex justify-center items-center size-full bg-slate-500 bg-opacity-40 px-4 py-2 md:px-6 md:py-3 rounded-lg">
         {currentPage}
       </div>
 
@@ -41,7 +41,7 @@ const Pagination = ({ total }) => {
           onClick={() => {
             createPageURL(currentPage + 1);
           }}
-          className="inline-flex size-8  items-center justify-center rounded-full border  bg-slate-500   absolute -right-12 top-1"
+          className="inline-flex size-8  items-center justify-center rounded-full border  bg-slate-500 bg-opacity-40   absolute -right-12 top-1"
         >
           <MdOutlineKeyboardArrowRight
             color="white"
