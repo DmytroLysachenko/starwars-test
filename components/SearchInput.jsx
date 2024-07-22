@@ -1,19 +1,22 @@
-import React from 'react';
+// SearchInput component rendering input for searching value
 
-const SearchInput = ({ setName }) => {
+const SearchInput = ({ name, setName }) => {
+  // As a props getting state name and setName function for changing state value
+  // onChange event for input setting state value to input value
+
   return (
     <>
       <label
         htmlFor="searchName"
         className="sr-only"
       >
-        {' '}
-        Search{' '}
+        Search
       </label>
 
       <input
         type="text"
         id="searchName"
+        value={name}
         onChange={(event) => {
           setName(event.target.value);
         }}

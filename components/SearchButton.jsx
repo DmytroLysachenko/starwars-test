@@ -1,4 +1,7 @@
 import { FaSearch } from 'react-icons/fa';
+
+// SearchButton which submitting form on click
+
 const SearchButton = () => {
   return (
     <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">

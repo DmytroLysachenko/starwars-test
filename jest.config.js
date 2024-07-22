@@ -1,5 +1,7 @@
 const nextJest = require('next/jest');
 
+// For some reason nextJest cannot be imported by modules
+
 const createJestConfig = nextJest({
   dir: './',
 });
@@ -9,11 +11,7 @@ const config = {
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/components/$1',
     '^@utils/(.*)$': '<rootDir>/utils/$1',
-    '^@constants/(.*)$': '<rootDir>/constants/$1',
   },
-  clearMocks: true,
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
 };
 
 module.exports = createJestConfig(config);

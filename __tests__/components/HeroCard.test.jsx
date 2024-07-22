@@ -3,9 +3,6 @@ const { hero } = require('@constants/testingConstants');
 const { render, screen } = require('@testing-library/react');
 
 describe('HeroCard component', () => {
-  it('should render with proper hero object', () => {
-    render(<HeroCard hero={hero} />);
-  });
   it('should navigate to proper SingleHero page when link is clicked', () => {
     render(<HeroCard hero={hero} />);
     const link = screen.getByText('Check out details');

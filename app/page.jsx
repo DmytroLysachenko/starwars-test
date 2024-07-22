@@ -1,6 +1,8 @@
 import Page from '@components/Page';
 import Link from 'next/link';
 
+// Home page with description of web-application and navigational link to '/heroes' page
+
 const Home = () => {
   return (
     <Page
@@ -45,7 +47,7 @@ const Home = () => {
           </ul>
           <Link
             href={'/heroes'}
-            className="block w-[200px] md:w-[200px] mx-auto p-3 md:p-5 md:text-xl rounded-xl bg-blue-800 bg-opacity-70 font-bold "
+            className="block w-[200px] md:w-[200px] mx-auto p-3 md:p-5 md:text-xl rounded-xl bg-blue-800 bg-opacity-70 font-bold hover:scale-110 transition-all "
           >
             Get Started
           </Link>

@@ -6,9 +6,17 @@ import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from 'react-icons/md';
+
+// Pagination component for HeroesPage
+
 const Pagination = ({ total }) => {
+  // As props getting total quantity of results
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  // pathname and searchParams to create function for changing visible page of results
+
   const currentPage = Number(searchParams.get('page')) || 1;
   const { replace } = useRouter();
   const createPageURL = (pageNumber) => {
@@ -16,6 +24,9 @@ const Pagination = ({ total }) => {
     params.set('page', pageNumber.toString());
     replace(`${pathname}?${params.toString()}`);
   };
+
+  // createPageURL getting as parameter page number and setting searchParam 'page' to that page
+
   return (
     <div className="flex justify-center gap-1 relative bottom-3 ">
       {currentPage > 1 && (

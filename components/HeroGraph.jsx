@@ -11,6 +11,9 @@ import {
 import '@xyflow/react/dist/style.css';
 import { createInitialData } from '@utils/reactFlowHelpers';
 import { useCallback } from 'react';
+import CheckboxInput from './CheckboxInput';
+
+// HeroGraph component creating graph for our hero with connections to films hero participated in and starships hero was on during these films
 
 const hide = (nodeOrEdge, hidden) => {
   return {
@@ -19,11 +22,18 @@ const hide = (nodeOrEdge, hidden) => {
   };
 };
 
-const HeroFlow = ({ hero, films, starships = [] }) => {
+// hide Function is for edges/nodes hidding feature in Graph. It could be useful in case of too many edges on the graph between films and starships.
+
+const HeroGraph = ({ hero, films, starships = [] }) => {
+  // As props getting hero object, films array with films where this hero appeared and starships hero was onboard of.
+  // Starships has as a default value empty array as hero could not be onboard any ships.
+
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
     []
   );
+
+  // onConnect is used for connecting nodes in graph
 
   const { initialNodes, initialEdges } = createInitialData(
     hero,
@@ -31,8 +41,14 @@ const HeroFlow = ({ hero, films, starships = [] }) => {
     starships
   );
 
+  // createInitialData function creating for us object with two properties - initialNodes and initialEdges - initial data for our graph.
+  // As params function taking object hero, films array with films where this hero appeared and starships hero was onboard of.
+  // PLEASE BE NOTICED - starships array we are passing to function is already filtered to only these, where our hero was. Filtering carried out in createHeroStarshipsIdsArray function.
+
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  // Hooks from react-flow for out nodes and edges
 
   const changeNodesAndEdges = (id, value) => {
     setNodes((nodes) =>
@@ -42,6 +58,8 @@ const HeroFlow = ({ hero, films, starships = [] }) => {
       edges.map((edge) => (edge.id.includes(id) ? hide(edge, value) : edge))
     );
   };
+
+  // changeNodesAndEdges function for hiding/unhiding nodes and edges used later in CheckboxInput component
 
   return (
     <div className=" relative h-[600px] w-[320px] md:w-[700px] xl:w-[1200px] border border-solid border-[#7473736c] rounded-2xl shadow-lg p-2 bg-blue-950 text-black">
@@ -59,32 +77,16 @@ const HeroFlow = ({ hero, films, starships = [] }) => {
           variant={BackgroundVariant.Dots}
         />
         {films.map((film, index) => (
-          <div
-            style={{
-              position: 'absolute',
-              left: 10,
-              top: 20 * index,
-              zIndex: 4,
-              color: 'white',
-            }}
+          <CheckboxInput
+            changeNodesAndEdges={changeNodesAndEdges}
+            film={film}
+            index={index}
             key={`${film.id} + ${index}`}
-          >
-            <label htmlFor={`${film.id}-ishidden`}>
-              {`"${film.title}" - hidden`}
-              <input
-                id={`${film.id}-ishidden`}
-                type="checkbox"
-                onChange={(event) => {
-                  changeNodesAndEdges(`film-${film.id}`, event.target.checked);
-                }}
-                className="ml-2"
-              />
-            </label>
-          </div>
+          />
         ))}
       </ReactFlow>
     </div>
   );
 };
 
-export default HeroFlow;
+export default HeroGraph;
