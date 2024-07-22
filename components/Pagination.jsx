@@ -32,6 +32,7 @@ const Pagination = ({ total }) => {
       {currentPage > 1 && (
         <button
           data-testid={`Pagination prev`}
+          name="Pagination button previous"
           onClick={() => {
             createPageURL(currentPage - 1);
           }}
@@ -51,6 +52,7 @@ const Pagination = ({ total }) => {
       {currentPage < total / 10 && (
         <button
           data-testid={`Pagination next`}
+          name="Pagination button next"
           onClick={() => {
             createPageURL(currentPage + 1);
           }}

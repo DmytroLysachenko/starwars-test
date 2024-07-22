@@ -12,7 +12,7 @@ const HeroCard = ({ hero, showMore }) => {
   // Show more button is a Nextjs Link navigating us to hero's id page
 
   return (
-    <div className="w-80 h-[400px] p-5 max-w-sm rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-800 via-purple-700 to-gray-800 m-4 border-solid border-2 border-yellow-500 hover:scale-110 transition-all">
+    <li className="w-80 h-[400px] p-5 max-w-sm rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-800 via-purple-700 to-gray-800 m-4 border-solid border-2 border-yellow-500 hover:scale-110 transition-all">
       <div className="flex flex-col size-full justify-between ">
         <ul className="flex flex-col justify-center gap-1 text-nowrap bg-slate-400 bg-opacity-50 p-5 rounded-xl">
           <li className="flex justify-between  gap-1 py-2 ">
@@ -55,7 +55,7 @@ const HeroCard = ({ hero, showMore }) => {
           </div>
         )}
       </div>
-    </div>
+    </li>
   );
 };
 

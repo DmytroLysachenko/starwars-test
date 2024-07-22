@@ -15,6 +15,9 @@ const HeroesPage = async ({ searchParams }) => {
       <SearchBar />
       {data.results && data.results.length ? (
         <section className="flex flex-col gap-10 justify-between items-center h-full">
+          <h2 className="text-5xl text-center mt-10 font-semibold font-sans">
+            Choose your Hero card
+          </h2>
           <HeroesList
             heroes={data.results}
             page={page}
