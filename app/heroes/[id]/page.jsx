@@ -1,9 +1,8 @@
 import DescriptionCardsSlider from '@components/DescriptionCardsSlider';
 import HeroCard from '@components/HeroCard';
 import HeroGraph from '@components/HeroGraph';
-import Page from '@components/Page';
 
-import StarshipCard from '@components/StarshipCard';
+import Page from '@components/Page';
 
 import { createHeroStarshipsIdsArray } from '@utils/createHeroStarshipsIdsArray';
 import { fetchDataById, fetchDataByIdArray } from '@utils/starWarsAPI';

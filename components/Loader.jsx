@@ -1,11 +1,9 @@
-'use client';
-
-import Page from '@components/Page';
+import React from 'react';
 import { ThreeCircles } from 'react-loader-spinner';
 
-const Fallback = () => {
+const Loader = () => {
   return (
-    <Page className="flex justify-center items-center">
+    <div className="flex w-full h-full items-center justify-center">
       <ThreeCircles
         visible={true}
         height="100"
@@ -15,8 +13,8 @@ const Fallback = () => {
         wrapperStyle={{}}
         wrapperClass=""
       />
-    </Page>
+    </div>
   );
 };
 
-export default Fallback;
+export default Loader;

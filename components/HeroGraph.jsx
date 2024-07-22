@@ -11,7 +11,11 @@ import {
 import '@xyflow/react/dist/style.css';
 import { createInitialData } from '@utils/reactFlowHelpers';
 import { useCallback } from 'react';
-import CheckboxInput from './CheckboxInput';
+import dynamic from 'next/dynamic';
+
+const CheckboxInput = dynamic(() => import('./CheckboxInput'), {
+  loading: () => <p>Loading...</p>,
+});
 
 // HeroGraph component creating graph for our hero with connections to films hero participated in and starships hero was on during these films
 

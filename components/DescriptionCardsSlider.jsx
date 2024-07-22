@@ -3,7 +3,13 @@
 import { useEffect, useState } from 'react';
 import { useMedia } from '@hooks/useMedia';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
-import CardWrapper from './CardWrapper';
+import dynamic from 'next/dynamic';
+
+const CardWrapper = dynamic(() => import('./CardWrapper'), {
+  loading: () => (
+    <div className="w-80 h-[400px] p-5 max-w-sm rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-800 via-purple-700 to-gray-800 m-4 border-solid border-2 border-yellow-500 hover:scale-110 transition-all flex flex-col size-full justify-between"></div>
+  ),
+});
 
 // Description cards slider with props of title and array of objects to be rendered (films / starships)
 // Component Client side for using hooks
