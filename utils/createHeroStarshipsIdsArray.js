@@ -6,7 +6,7 @@ export const createHeroStarshipsIdsArray = (hero, films) => {
   for (const film of films) {
     starshipsIdArray.push(...film.starships);
   }
-  console.log(starshipsIdArray);
+
   // iteration for filling up starshipsIdArray array with starships ids from all films (could be repeated)
   if (starshipsIdArray && starshipsIdArray.length > 0) {
     const heroStarshipsIdsArray = starshipsIdArray.filter((id) =>
