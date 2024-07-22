@@ -1,7 +1,6 @@
 import Nav from '@components/Nav';
 import '../styles/globals.css';
 import { Inter } from 'next/font/google';
-import Head from 'next/head';
 
 // Font used all over the project
 
@@ -22,17 +21,10 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="format-detection"
-          content="telephone=no, date=no, email=no, address=no"
-        />
-      </Head>
       <body
         className={`${inter.className} antialiased text-white bg-general-page scroll-smooth`}
       >
         <Nav />
-
         <main>{children}</main>
       </body>
     </html>
