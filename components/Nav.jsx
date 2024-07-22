@@ -49,7 +49,7 @@ const Nav = () => {
           >
             <span className=" block relative size-8 md:size-12 rounded-full border-solid border-2 border-black bg-white">
               <Image
-                src={'/assets/images/starship2.png'}
+                src={'/assets/images/starship.webp'}
                 alt="Navigation starship"
                 fill
                 className="object-contain"
@@ -69,7 +69,7 @@ const Nav = () => {
           >
             <span className="block relative size-8 md:size-12 bg-white rounded-full ">
               <Image
-                src={'/assets/images/jediLogo.png'}
+                src={'/assets/images/jediLogo.webp'}
                 alt="Jedi logo"
                 fill
                 className="object-contain"
