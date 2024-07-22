@@ -1,7 +1,4 @@
-const { starships } = require('@constants/testingConstants');
-const {
-  createHeroStarshipsIdsArray,
-} = require('@utils/createHeroStarshipsIdsArray');
+import { createHeroStarshipsIdsArray } from '@/utils/createHeroStarshipsIdsArray';
 
 describe('createHeroStarshipsIdsArray', () => {
   it('returns an array of unique starship IDs associated with the hero', () => {

@@ -47,14 +47,14 @@ const Nav = () => {
               path === '/' ? 'text-violet-400' : 'hover:text-violet-200'
             )}
           >
-            <div className="relative size-8 md:size-12 rounded-full border-solid border-2 border-black bg-white">
+            <span className=" block relative size-8 md:size-12 rounded-full border-solid border-2 border-black bg-white">
               <Image
                 src={'/assets/images/starship2.png'}
                 alt="Navigation starship"
                 fill
                 className="object-contain"
               />
-            </div>
+            </span>
             Home
           </Link>
 
@@ -67,14 +67,14 @@ const Nav = () => {
                 : 'hover:text-violet-200'
             )}
           >
-            <div className="relative size-8 md:size-12 bg-white rounded-full ">
+            <span className="block relative size-8 md:size-12 bg-white rounded-full ">
               <Image
                 src={'/assets/images/jediLogo.png'}
-                alt="Navigation starship"
+                alt="Jedi logo"
                 fill
                 className="object-contain"
               />
-            </div>
+            </span>
             Heroes
           </Link>
         </nav>

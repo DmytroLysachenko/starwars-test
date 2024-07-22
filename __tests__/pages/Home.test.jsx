@@ -1,5 +1,6 @@
-const { default: Home } = require('../../app/page');
-const { render, screen, fireEvent } = require('@testing-library/react');
+import Home from '@app/page';
+
+const { screen, render } = require('@testing-library/react');
 
 jest.mock('next/navigation', () => ({
   useRouter() {
@@ -16,7 +17,7 @@ jest.mock('next/navigation', () => ({
 
 test('should have heading text', () => {
   render(<Home />);
-  expect(screen.getByText('Discover Your Star Wars Hero')).toBeInTheDocument;
+  expect(screen.getByText('Discover Your Star Wars Hero')).toBeInTheDocument();
 });
 
 test('should navigate to Heroes page when link is clicked', () => {

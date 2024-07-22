@@ -35,6 +35,7 @@ const DescriptionCardsSlider = ({ title, array }) => {
             <button
               type="button"
               className="absolute -left-7 top-1/2  hover:scale-110  transition-all bg-slate-500 bg-opacity-40 rounded-full p-1"
+              data-testid={`${title} prev`}
               onClick={() => {
                 setCurrentPage((prevValue) => prevValue - 1);
               }}
@@ -72,6 +73,7 @@ const DescriptionCardsSlider = ({ title, array }) => {
               <button
                 type="button"
                 className="absolute -right-7 top-1/2  hover:scale-125 transition-all bg-slate-500 bg-opacity-40 rounded-full p-1 "
+                data-testid={`${title} next`}
                 onClick={() => {
                   setCurrentPage((prevValue) => prevValue + 1);
                 }}

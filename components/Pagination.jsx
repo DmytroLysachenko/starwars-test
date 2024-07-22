@@ -31,6 +31,7 @@ const Pagination = ({ total }) => {
     <div className="flex justify-center gap-1 relative bottom-3 ">
       {currentPage > 1 && (
         <button
+          data-testid={`Pagination prev`}
           onClick={() => {
             createPageURL(currentPage - 1);
           }}
@@ -49,6 +50,7 @@ const Pagination = ({ total }) => {
 
       {currentPage < total / 10 && (
         <button
+          data-testid={`Pagination next`}
           onClick={() => {
             createPageURL(currentPage + 1);
           }}

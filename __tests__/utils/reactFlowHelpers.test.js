@@ -1,9 +1,9 @@
-const {
-  createInitialData,
-  createStarshipsNodes,
+import {
   createFilmsNodes,
   createFromOneToManyEdges,
-} = require('@utils/reactFlowHelpers');
+  createInitialData,
+  createStarshipsNodes,
+} from '@/utils/reactFlowHelpers';
 
 describe('createStarshipsNodes', () => {
   it('creates nodes for each starship with the correct structure', () => {
