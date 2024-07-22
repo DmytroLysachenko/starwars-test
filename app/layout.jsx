@@ -7,6 +7,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
+  preload: true,
+  adjustFontFallback: false,
 });
 
 // Metadata for improving SEO
@@ -14,6 +16,7 @@ const inter = Inter({
 export const metadata = {
   title: 'Star Wars guide',
   description: 'Find all the connections from your favorite movies series.',
+  content,
 };
 
 // Layout includes page and navigation (<Nav/>)
