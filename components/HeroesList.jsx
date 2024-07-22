@@ -8,11 +8,12 @@ const HeroesList = ({ heroes }) => {
   return (
     <ul className="flex flex-wrap gap-4 justify-center max-w-[1200px] mx-auto">
       {heroes.map((hero) => (
-        <HeroCard
-          key={hero.id}
-          showMore={true}
-          hero={hero}
-        />
+        <li key={hero.id}>
+          <HeroCard
+            showMore={true}
+            hero={hero}
+          />
+        </li>
       ))}
     </ul>
   );

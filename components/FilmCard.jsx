@@ -31,7 +31,7 @@ const FilmCard = ({ film }) => {
               <h3 className="font-semibold text-wrap text-left ">
                 Opening Crawl:
               </h3>
-              <p className="text-wrap text-right">{opening_crawl}</p>
+              <p className="text-wrap  text-right">{opening_crawl}</p>
             </li>
           )}
         </ul>
