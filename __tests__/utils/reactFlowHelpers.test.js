@@ -45,12 +45,12 @@ describe('createFilmsNodes', () => {
       {
         id: 'film-1',
         data: { label: 'A New Hope' },
-        position: { x: 200, y: 200 },
+        position: { x: 100, y: 200 },
       },
       {
         id: 'film-2',
         data: { label: 'The Empire Strikes Back' },
-        position: { x: -400, y: 200 },
+        position: { x: -200, y: 200 },
       },
     ]);
   });
@@ -112,12 +112,12 @@ describe('createInitialData', () => {
         {
           id: 'film-1',
           data: { label: 'A New Hope' },
-          position: { x: 200, y: 200 },
+          position: { x: 100, y: 200 },
         },
         {
           id: 'film-2',
           data: { label: 'The Empire Strikes Back' },
-          position: { x: -400, y: 200 },
+          position: { x: -200, y: 200 },
         },
       ],
       initialEdges: [
@@ -149,12 +149,12 @@ describe('createInitialData', () => {
         {
           id: 'film-1',
           data: { label: 'A New Hope' },
-          position: { x: 200, y: 200 },
+          position: { x: 100, y: 200 },
         },
         {
           id: 'film-2',
           data: { label: 'The Empire Strikes Back' },
-          position: { x: -400, y: 200 },
+          position: { x: -200, y: 200 },
         },
       ],
       initialEdges: [

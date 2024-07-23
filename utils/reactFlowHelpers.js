@@ -2,7 +2,7 @@
 
 export const createFilmsNodes = (films) => {
   const filmsNodes = films.map((film, index) => {
-    const XAxisPosition = 200 * (index + 1) * (-1) ** index;
+    const XAxisPosition = 100 * (index + 1) * (-1) ** index;
 
     return {
       id: `film-${film.id}`,
