@@ -5,7 +5,11 @@ import HeroGraph from '@components/HeroGraph';
 import Page from '@components/Page';
 
 import { createHeroStarshipsIdsArray } from '@utils/createHeroStarshipsIdsArray';
-import { fetchDataById, fetchDataByIdArray } from '@utils/starWarsAPI';
+import {
+  fetchDataById,
+  fetchDataByIdArray,
+  fetchDataByKeyAndIdArray,
+} from '@utils/starWarsAPI';
 
 // Server side generated Page with fetched detailed information about the hero, films and starships
 
@@ -17,18 +21,19 @@ const SingleHeroPage = async ({ params }) => {
   // Fetching all neccessary information on hero and fims with the hero
 
   const hero = await fetchDataById('people', id);
-  const films = await fetchDataByIdArray('films', hero.films);
+  const films = await fetchDataByKeyAndIdArray('films', hero.films);
 
   // Function creating array of starships, where hero was in mentioned films. As params getting hero obj and films array
 
   const heroStarshipsIdsArray = createHeroStarshipsIdsArray(hero, films);
 
-  // Fetching information on required starships
+  // Fetching information on required starships.
+  // Here we have the condition for fetching, if it is reasonable to fetch all of starships and filter them, or go id by id.
 
-  const starships = await fetchDataByIdArray(
-    'starships',
-    heroStarshipsIdsArray
-  );
+  const starships =
+    heroStarshipsIdsArray.length > 4
+      ? await fetchDataByKeyAndIdArray('starships', heroStarshipsIdsArray)
+      : await fetchDataByIdArray('starships', heroStarshipsIdsArray);
 
   // Page includes Hero Description card, Films Description card, Starships description cards and React chart flow with info fetched before
 
