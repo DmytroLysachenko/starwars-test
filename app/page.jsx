@@ -26,7 +26,7 @@ const Home = () => {
             <li>
               <span className=" font-semibold">
                 Explore Comprehensive Profiles:
-              </span>{' '}
+              </span>
               <p>
                 Detailed biographies, character backgrounds, and key moments.
               </p>
@@ -35,13 +35,6 @@ const Home = () => {
               <span className=" font-semibold">Stay Updated:</span>{' '}
               <p>
                 Latest news, appearances, and trivia about your beloved heroes.
-              </p>
-            </li>
-            <li>
-              <span className=" font-semibold">Connect and Share:</span>{' '}
-              <p>
-                Join the fan community, share your insights, and celebrate your
-                favorite characters together.
               </p>
             </li>
           </ul>
