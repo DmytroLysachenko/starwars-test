@@ -1,4 +1,4 @@
-# Star Wars Info Web Application
+# Star Wars Guide Web Application
 
 This web application allows users to explore information on heroes, films, and starships from the Star Wars universe. Built with React and Next.js, it leverages a public API for data retrieval - [check out here](https://sw-api.starnavi.io). Testing is carried out using the Jest framework.
 
